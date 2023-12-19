@@ -1,0 +1,56 @@
+<% content_for :custom_styles do %>
+  <%= stylesheet_link_tag 'menucard', media: 'all' %>
+<% end %>
+<section id="popular" class="module">
+
+		<div class="container">
+ <%=button_to 'Go back home',root_path,method: :get, class:"btn btn-primary " %>
+			
+
+			<div class="row justify-content-center">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="module-header text-center wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+						<h2 class="module-title">Popular Dishes</h2>
+						<h3 class="module-subtitle">Our most popular menu</h3>
+					</div>
+				</div>
+			</div><!-- .row -->
+
+			<div class="row justify-content-center">
+
+
+				<div class="col-sm-6">
+
+					<%@menu_items.each do |item|%>
+
+					<div class="menu">
+						<div class="row">
+							<div class="col">
+								<h4 class="menu-title"><b><%= item.dish_name%></b></h4>
+								<div class="menu-detail"><%= item.dish_description%></div>
+								<div class="menu-detail"><b>Category : </b><%= item.category%></div>
+								<div class="menu-detail"><b>Type :</b> <%= item.dish_type%></div>
+							</div>
+							<div class="col-sm-4 menu-price-detail">
+								<h4 class="menu-price">$<%=item.price%></h4>
+							</div>
+						</div>
+					</div>
+				
+				<%end%>
+
+
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3 long-up text-center">
+				</div>
+			</div><!-- .row -->
+
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="devider">
+					</div>
+				</div>
+			</div><!-- .row -->
+
+		</div><!-- .container -->
+	</section>
