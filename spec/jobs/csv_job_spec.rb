@@ -1,14 +1,13 @@
-
-
-# spec/jobs/csv_job_spec.rb
 require 'rails_helper'
+
+
 
 RSpec.describe CsvJob, type: :job do
   include ActiveJob::TestHelper
 
   let(:csv_data) do
     [
-      { "dish_name" => 'Dish1', "dish_description"=> 'Description1', "dish_type" => 'Type1', "allergens" => 'Allergen1', 'Category' => 'Category1', 'Price' => 'Price1' },
+      { "dish_name" => 'Dish1', "dish_description"=> 'Description1', "dish_type" => 'Type11', "allergens" => 'Allergen1', 'Category' => 'Category1', 'Price' => 'Price1' },
       # Add more sample data as needed
     ]
   end
@@ -30,6 +29,7 @@ RSpec.describe CsvJob, type: :job do
     tests = CsvFileTest.create(dish_name: "dish_name", dish_description: "dish_description", dish_type: "dish_type", allergens: "allergens", category: "category", price: "12.2")
 
       CsvJob.perform_later(csv_file_test_data) 
+      
     end
   end
 

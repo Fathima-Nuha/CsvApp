@@ -5,7 +5,7 @@ RSpec.describe "FilesController", type: :request do
   include ActiveJob::TestHelper # Include the module here
 
   describe 'POST #create' do
-    it 'queues CsvJob with correct data' do
+    it 'queues CsvJob with correct dataxxsxasas' do
       csv_file_path = Rails.root.join('spec/fixtures/username.csv')
       csv_file = fixture_file_upload(csv_file_path, 'text/csv')
 
@@ -22,6 +22,14 @@ RSpec.describe "FilesController", type: :request do
       # Add more assertions or debug statements as needed
 
       # expect(CsvJob).to have_been_enqueued.with(csv_data)
+    end
+  end
+
+    describe 'Launching the application' do
+    it 'renders the home page' do
+        get :/
+        expect(session[:authorisation]).to be_falsy
+        expect(response).to render_template(:index)
     end
   end
 end

@@ -1,0 +1,14 @@
+class CsvJob < ApplicationJob
+  queue_as :default
+  after_perform do |job|
+    # This block will be executed after the job is performed
+    puts "CsvJob completed for job ID: #{job.job_id}"
+    # You can add your logic here to notify the frontend or perform other actions
+  end
+
+  def perform(dish_name,dish_description,dish_type,allergens,category,price)
+    # Do something later
+      CsvTestFile.create(dish_name: dish_name,dish_description:dish_description,dish_type:dish_type,allergens:allergens,category:category,price:price)
+  end
+end
+

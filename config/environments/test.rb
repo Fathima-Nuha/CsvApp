@@ -58,7 +58,7 @@ Rails.application.configure do
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
-  config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_adapter = :sidekiq
 
   config.before_configuration do
   Sidekiq.configure_client do |config|
@@ -69,11 +69,8 @@ Rails.application.configure do
   end
 end
 
+  config.active_job.queue_adapter = :sidekiq
 
-if Rails.env.test?
-  puts "testing"
-  require 'sidekiq/testing'
-  Sidekiq::Testing.inline!
-end
+
 
 end

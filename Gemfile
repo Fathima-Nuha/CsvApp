@@ -79,7 +79,9 @@ end
 # end
 
 
-
+group :test do
+  gem 'rspec-sidekiq'
+end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
